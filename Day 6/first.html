@@ -4,6 +4,16 @@
         <meta htt http-equiv="X-UA-Compatible" conten="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <!-- link tag to external CSS -->
+        <!-- if link was below style tag h2 would go with external css h2 color -->
+        <link type = "text/css" href = "mystyles.css" rel="stylesheet">
+        <!-- style tag -->
+        <style>
+            /* any h2 get the color green */
+            h2 {color : green}
+            /* any h1 get the color violet */
+            h1 {color : violet}
+        </style>
     </head>
     <body>
         <!-- different header fonts -->
@@ -101,6 +111,46 @@
                 </tr>
             </tbody>
         </table>
+
+        <!-- Simple HTML Forms -->
+        <h2>Simple HTML Forms</h2> 
+        <!-- using post will not show the data in the URL -->
+        <!-- action will use some backend stuff -->
+        <!-- know this is a non working form, need backend services -->
+        <form method = "post" action = "/abc">
+            <!-- stores value in name -->
+            <!-- place holder is like description -->
+            <!-- autocomplete are like suggestions -->
+            <label>
+                Enter Name <input type = "text" placeholder = "Enter your name" name = "n1" autocomplete = "off" />
+            </label>
+            <br />
+            <label>
+                Enter age <input type = "number" placeholder = "Enter your age" name = "n2" />
+            </label>
+            <br />
+            <label>
+                Enter date <input type = "date" name = "n3" /> 
+            </label>
+            <br />
+            <!-- login button -->
+            <input type = "submit" value = "login" />
+        </form>
+
+        <!-- This is a CSS Example -->
+        <!-- notice because this has inline css it overrides internal css -->
+        <h1 style = "color : blue">This is a CSS Example</h1>
+        <h1>This is Main Heading h1</h1>
+        <h2>This is sub heading h2</h2>
+        <h2>This another sub heading h2</h2>
+        <!-- notice the style -->
+        <p style = "color: red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, enim.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, tempore.</p>
+
+        <!-- CSS Selectors Example-->
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, expedita?</h1>
+        <p class = "danger">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, fugit?</p>
+        <p class = "success">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, numquam?</p>
 
         <!--  -->
     </body>

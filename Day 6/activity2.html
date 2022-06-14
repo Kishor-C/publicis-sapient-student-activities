@@ -1,0 +1,79 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta htt http-equiv="X-UA-Compatible" conten="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Form</h1>
+
+        <!-- HTML Table -->
+        <table>
+            <!-- table body/contents -->
+            <tbody>
+                <form action="post" action = "/abc">
+                    <!-- Name -->
+                    <tr>
+                        <td>Name</td><td><input type="text" placeholder="Enter your name" name="n1" autocomplete="off"></td>
+                    </tr>
+                    <!-- Password -->
+                    <tr>
+                        <td>Password</td><td><input type="password" placeholder="Enter your password" name="n2" autocomplete="off"></td>
+                    </tr>
+                    <!-- Gender -->
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <input type="radio" id="Male" name="n3" value="Male">
+                            <label for="Male">M</label>
+                            <input type="radio" id="Female" name="n4" value="Female">
+                            <label for="Female">F</label>
+                        </td>
+                    </tr>
+                    <!-- Skills -->
+                    <tr>
+                        <td>Skills</td>
+                        <td>
+                            <input type="checkbox" id="C" name="n5" value="C">
+                            <label for="C">C</label>
+                            <input type="checkbox" id="Java" name="n6" value="Java">
+                            <label for="Java">Java</label>
+                            <input type="checkbox" id="JS" name="n7" value="JS">
+                            <label for="JS">JS</label>
+                        </td>
+                    </tr>
+                    <!-- Qualifications -->
+                    <tr>
+                        <td>Qualifications</td>
+                        <td>
+                            <select name="Qualification" id="Qualification" name="n8">
+                                <option value="HS">High School</option>
+                                <option value="Bachelor">Bachelors</option>
+                                <option value="Master">Masters</option>
+                                <option value="PHD">PHD</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- DOB -->
+                    <tr>
+                        <td>DOB</td>
+                        <td>
+                            <input type = "date" name = "n9"/>
+                        </td>
+                    </tr>
+                    <!-- Register and Reset -->
+                    <tr>
+                        <td>
+                            <input type = "submit" value = "Register" />
+                        </td>
+                        <td>
+                            <input type = "reset" value = "Reset" />
+                        </td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </body>
+</html>
