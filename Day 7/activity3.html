@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Activity 3</h1>
+    <!-- canvas -->
+    <canvas id="c1" style="border: 2px solid black" width="800" height="800"></canvas>
+    <script type="text/javascript">
+        // getContext('2d') gives the canvas object, so we can access its member
+        let ctx = document.getElementById('c1').getContext('2d');
+        for(let x = 0; x < 8; x++) {
+            for(let y = 0; y < 8; y++) {
+                if((x+y) % 2 == 0) {
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(x * 100, y * 100, 100, 100);
+                } else {
+                    ctx.fillStyle = 'black';
+                    ctx.fillRect(x * 100, y * 100, 100, 100);   
+                }
+            }
+        }
+    </script>
+</body>
+</html>

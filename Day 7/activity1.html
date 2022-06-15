@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .smallImages {
+            width: 100; height: 100;
+            border: 2px solid black;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Activity 1</h1>
+
+    <!-- basic script -->
+    <h2>basic script</h2>
+    <script type="text/javascript">
+        // basic print statement
+        var firstname = "Jesse Cho";
+        var age = 21;
+        document.write('<h3>Name = ' + firstname + ', Age = ' + age + '</h3>');
+    </script>
+    <br>
+
+    <!-- for loops with objects -->
+    <h2>for loop objects</h2>
+    <script type="text/javascript">
+           // array of objects
+           let item = [
+            {name : 'Joseph', age : 21},
+            {name : 'Joel', age : 25},
+            {name: 'Jenny', age : 16}
+        ];
+        for(let index = 0; index < item.length; index++) {
+            document.write('<p>Name = ' + item[index].name + ', Age = ' + item[index].age + '</p>');
+        }
+    </script>
+    <br>
+
+    <!-- EVENTS -->
+    <h2>basic events</h2>
+    <input type="text" id="i1">
+    <button onclick ="handleClick(event)">Submit</button>
+    <div id = "i2">Name is: </div>
+    <script type="text/javascript">
+        function handleClick(e) {
+            console.log(e);
+            console.log(e.target); // this is one way to access the element
+            let ele = document.getElementById("i1"); // input#i1
+            console.log(ele.value);
+            let ele2 = document.getElementById("i2"); // div#i2
+            // element has many properties and functions
+            ele2.innerHTML = ele2.innerHTML + '<b>'+ele.value+'</b>';
+        }
+    </script>
+    <br>
+
+    <!-- Event handling in JS -->
+    <h2>event handling in javascript</h2>
+    <img src="" alt="choose your favorite picture here!" width="400" height="400" id="main"/>
+    <div onclick="changeImages(event)" style="border: 2px solid black">
+        <img src="pics/tree.jpg" class="smallImages"/>
+        <img src="pics/bird.jpg" class="smallImages"/>
+        <img src="pics/monplane.jpg" class="smallImages"/>
+        <img src="pics/river.jpg" class="smallImages"/>
+        <img src="pics/stone.jpg" class="smallImages"/>
+    </div>
+    <script type="text/javascript">
+        function changeImages(e) {
+            let mainImage = document.getElementById("main"); // img#main
+            let target = e.target;
+            if(target.tagName == 'IMG') {
+                mainImage.src = target.src;
+            }
+        }
+    </script>
+    <br>
+
+    <!-- canvas -->
+    <h2>canvas</h2>
+    <canvas id="c1" style="border: 2px solid black" width="400" height="400"></canvas>
+    <script type="text/javascript">
+        // getContext('2d') gives the canvas object, so we can access its member
+        let ctx = document.getElementById('c1').getContext('2d');
+        // fillRect(x, y, w, h)
+        ctx.fillRect(50, 50, 50, 50);
+        ctx.fillRect(300,50,50,50);
+        // beginPath() to create an arc
+        ctx.beginPath();
+        // arc(x, y, r, start, end, true/false) true means anti-clockwise
+        ctx.arc(200,200,25,0,Math.PI,true); // Math.PI means 180 degree
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(200,300,75,0,Math.PI, false);
+        ctx.fill();
+    </script>
+</body>
+</html>

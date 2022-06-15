@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .smallImages {
+            width: 100; height: 100;
+            border: 2px solid black;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Demo on Javascript</h1>
+    <script type="text/javascript">
+        // basic print statement
+        var firstname = "Alexandar";
+        var age = 35;
+        document.write('<h3>Name = ' + firstname + ', Age = ' + age + '</h3>');
+    </script>
+
+    <script type="text/javascript">
+        // for loop and going over scope
+        // window is global object
+        for(var v = 0; v < 10; v++) {
+            var x = 2;
+            if((v%x) == 0) {
+                document.write('<p>window.v = '+window.v+'</p>');
+            }
+        }
+        // notice how x is able to be printed, even though x is declared inside the for loop
+        document.write('<p>value of window.x: '+window.x+'</p>');
+        // same result
+        document.write('<p>value of x: '+x+'</p>');
+        // does not exist
+        document.write('<p>window.z = '+window.z+'</p>');
+    </script>
+
+    <script type="text/javascript">
+          // for let varialbe
+          for(let a = 0; a < 10; a++) {
+            let y = 2;
+            if((a%y) == 0) {
+                document.write('<p>a = ' + a + '</p>');
+            }
+        }
+        // y doesn't show up
+        document.write('<p>value of y: ' + y + '</p>');
+    </script>
+
+    <script type="text/javascript">
+        // arrays
+        let items = [2, 1, 3, 5, 3]; // items.length returns size of the array
+        for(let index = 0; index < items.length; index++) {
+            document.write('<p>items = ' + items[index] + '</p>');
+        }
+    </script>
+    
+    <script type="text/javascript">
+         // litral style object
+         let user1 = {name: "Alexandar", age : 35};
+        document.write('<p>Name = '+user1.name+', Age = '+user1.age+'</p>');
+        // function style object
+        function Person(name, age) {
+            // this is used to declare properties for Person object
+            this.name = name;
+            this.age = age;
+            // this.name and this.age declares two properties which are initialized by 2 params
+        }
+        let user2 = new Person('Bruce', 40);
+        document.write('<p>Name = '+user2.name+', Age = '+user2.age+'</p>');
+    </script>
+
+    <script type="text/javascript">
+           // array of objects
+           let items1 = [
+            {name : 'Jack', age : 35},
+            {name : 'Raj', age : 40},
+            {name: 'Vijay', age : 33}
+        ];
+        for(let index = 0; index < items.length; index++) {
+            document.write('<p>Name = ' + items1[index].name + ', Age = ' + items1[index].age + '</p>');
+        }
+    </script>
+
+    <!-- EVENTS -->
+    <input type="text" id="i1">
+    <br />
+    <button onclick ="handleClick(event)">My Button</button>
+    <p onclick="handleClick(event)">My Paragraph</p>
+    <div id = "i2">Name is: </div>
+    <script type="text/javascript">
+        function handleClick(e) {
+            console.log(e);
+            console.log(e.target); // this is one way to access the element
+            let ele = document.getElementById("i1"); // input#i1
+            console.log(ele.value);
+            let ele2 = document.getElementById("i2"); // div#i2
+            // element has many properties and functions
+            ele2.innerHTML = ele2.innerHTML + '<b>'+ele.value+'</b>';
+        }
+    </script>
+
+    <div style="color: rgb(100, 100, 100)">Some colors</div>
+    <button onclick="changeColor()">Change Color</button>
+    <div>
+        <button onclick="addColor('red')">Red</button>
+        <button onclick="addColor('green')">Green</button>
+        <button onclick="addColor('blue')">Blue</button>
+    </div>
+    <div id = "d1">Hello World</div>
+    <script type="text/javascript">
+        function changeColor() {
+            let ele = document.getElementById("d1"); // div#i1
+            ele.style.color = "red"; // <div id = "i1" style = "color:red">
+        }
+        function addColor(c) {
+            let ele = document.getElementById("d1");
+            ele.style.color = c;
+        }
+    </script>
+
+    <input type="range" min="0" max="255" oninput="handleInput(event)">
+    <span id="s1"></span>
+    <script type="text/javascript">
+        function handleInput(e) {
+            let rangeBarValue = e.target.value;
+            document.getElementById("s1").innerHTML = rangeBarValue;
+        }
+    </script>
+
+    <!-- Event handling in JS -->
+    <h2>Event Handling in Javascript</h2>
+    <img src="pics/tower.jpg" width="400" height="400" id="main"/>
+    <div onclick="changeImages(event)" style="border: 2px solid black">
+        <img src="pics/tree.jpg" class="smallImages"/>
+        <img src="pics/bird.jpg" class="smallImages"/>
+        <img src="pics/monplane.jpg" class="smallImages"/>
+        <img src="pics/river.jpg" class="smallImages"/>
+        <img src="pics/stone.jpg" class="smallImages"/>
+    </div>
+    <script type="text/javascript">
+        function changeImages(e) {
+            let mainImage = document.getElementById("main"); // img#main
+            let target = e.target;
+            if(target.tagName == 'IMG') {
+                mainImage.src = target.src;
+            }
+        }
+    </script>
+
+    <!-- canvas -->
+    <canvas id="c1" style="border: 2px solid black" width="400" height="400"></canvas>
+    <script type="text/javascript">
+        // getContext('2d') gives the canvas object, so we can access its member
+        let ctx = document.getElementById('c1').getContext('2d');
+        // fillRect(x, y, w, h)
+        ctx.fillRect(50, 50, 50, 50);
+        ctx.fillStyle = 'red';
+        ctx.fillRect(100,100,50,50);
+        // beginPath() to create an arc
+        ctx.beginPath();
+        // arc(x, y, r, start, end, true/false) true means anti-clockwise
+        ctx.arc(200,200,25,0,Math.PI,true); // Math.PI means 180 degree
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(300,300,20,0,Math.PI, true);
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+    </script>
+    <script type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

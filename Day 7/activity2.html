@@ -1,0 +1,74 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta htt http-equiv="X-UA-Compatible" conten="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Activity 2</h1>
+
+        <form name="register" action="" method="post" onsubmit="return checkForm()">
+            Firstname <input type="text" placeholder="Enter your Firstname" name="fn" autocomplete="off"> <br />
+            Lastname <input type="text" placeholder="Enter your Lastname" name="ln" autocomplete="off"> <br />
+            Gender
+                <input type="radio" name="m" value="Male">
+                <label for="Male">Male</label>
+                <input type="radio" name="f" value="Female">
+                <label for="Female">Female</label>
+                <br />
+            Password <input type="password" placeholder="Enter your Password" name="pw"> <br />
+            Confirm Password <input type="password" placeholder="Confirm your Password" name="cpw"> <br />
+            Skills
+                <input type="checkbox" name="c" value="C">
+                <label for="C">C</label>
+                <input type="checkbox" name="cplus" value="Java">
+                <label for="Java">C++</label>
+                <input type="checkbox" name="j" value="JS">
+                <label for="JS">Java</label>
+                <br />
+            <input type = "submit" value = "Register">
+        </form>
+
+        <script type="text/javascript">
+            function checkForm() {
+                let fourm = document.register;
+                let firstname = fourm.fn;
+                let lastname = fourm.ln;
+                let male = fourm.m;
+                let female = fourm.f;
+                let password = fourm.pw;
+                let confirmpassword = fourm.cpw;
+                let c = fourm.c;
+                let cplus = fourm.cplus;
+                let java = fourm.j;
+
+                if(firstname.value.length < 3) {
+                    alert('Firstname is less than 3 characters');
+                    return false;
+                }
+                if(lastname.value.length < 2) {
+                    alert('Lastname is less than 2 characters');
+                    return false;
+                }
+                if(male.checked == false && female.checked == false) {
+                    alert('Gender is not selected');
+                    return false;
+                }
+                if(password.value.length == 0) {
+                    alert('Please enter a password');
+                    return false;
+                }
+                if(password.value != confirmpassword.value) {
+                    alert('password and confirm password is not the same');
+                    return false;
+                }
+                if(c.checked == false && cplus.checked == false && java.checked == false) {
+                    alert('skills not selected');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>
+</html>
