@@ -1,0 +1,21 @@
+<!-- just need to add some content -->
+<div>
+  <h1>Thi is Root component</h1>
+  <!-- using the data stored in component -->
+  <h2>Title: {{title}}</h2>
+  <h2>Name: {{name}}</h2>
+  <!-- below is a demo component -->
+  <app-demo></app-demo>
+  <!-- below is a user component -->
+  <app-user></app-user>
+  <hr />
+  <h2>Let us iterate the array using ngFor</h2>
+  <!-- Here ngFor* iterates items and in each iteration it displays the element inside using <li> -->
+  <ul>
+    <li *ngFor="let i of items">{{i}}</li>
+  </ul>
+  <h2>Let us iterate the users array</h2>
+  <div *ngFor="let u of users">
+    Hello {{u.name}}, your age is {{u.age}}
+  </div>
+</div>

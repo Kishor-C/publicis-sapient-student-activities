@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta htt http-equiv="X-UA-Compatible" conten="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- root node -->
+        <div id = "root"></div>
+
+        <!-- adding 3 libraries -->
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!-- creating componenets inside script -->
+        <script type="text/babel">
+            function UserList() {
+                let users = [{name: "Alex", age: 35, gender: "Male"}, {name: "Suma", age:40, gender: "Female"}];
+                return(<table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Age</td>
+                            <td>Gender</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            users.map(item => <tr><td>{item.name}</td><td>{item.age}</td><td>{item.gender}</td></tr>)
+                        }
+                    </tbody>
+                </table>);
+            }
+            // creating a component that will be a function name must be with uppercase
+            function App() {
+                return (<div>
+                        <h1>Activity 1</h1>
+                        <UserList />
+                    </div>);
+            }
+            // patching the component to the browser DOM
+            ReactDOM.render(<App />, document.getElementById('root'));
+        </script>
+    </body>
+</html>

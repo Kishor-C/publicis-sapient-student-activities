@@ -1,0 +1,40 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta htt http-equiv="X-UA-Compatible" conten="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- adding 3 libraries -->
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <!-- root node -->
+        <!-- everything inside here will be managed by react DOM -->
+        <div id = "root"></div>
+
+        <!-- creating componenets inside script -->
+        <script type="text/babel">
+            // creating root
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            function tick() {
+                const element = (
+                    <div>
+                        <h1>Hello, world!</h1>
+                        <h2>It is {new Date().toLocaleTimeString()}.</h2>
+                    </div>
+                );
+                root.render(element);
+            }
+            // calling render multiple times
+            // most React apps only call root.render() once
+            setInterval(tick, 1000);
+            
+            // rendering
+            // only way to update UI is to create new element and pass to root.render
+            // root.render(element);
+        </script>
+    </body>
+</html>
