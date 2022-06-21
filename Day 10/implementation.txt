@@ -1,0 +1,43 @@
+interface A {
+    abc();
+    xyz();
+}
+
+class FirstImpl implements A {
+    abc() {} xyz() {}
+}
+
+class SecondImple implements A {
+    abc() {} xyz() {}
+}
+
+util(new FirstImpl()); 
+
+void util(A a) {
+    a.abc();
+    a.xyz();
+}
+
+-----------------------------------------------------------------------------
+
+Controller {
+    // @Autowired
+    ServiceInterface service; // depends on service layer
+    service.methods()
+}
+
+ServiceInterface {}
+class ServiceImpl implements Serviceinterface {
+    // tightly coupled
+    @Autowired
+    DAOInterface dao = new FirstDaoImpl(); // depends on dao layer
+    dao.methods();
+}
+    // assume 10 classes has DAOInterface dao = new SecondDaoImpl()
+
+interface DAOInterface {}
+
+@Repository
+class FirstDaoImpl implement DAOInterface { same methods of DAOInterface }
+@Repository
+class SecondDaoImpl implement DAOInterface { same methods of DAOInterface }
